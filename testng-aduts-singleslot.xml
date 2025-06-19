@@ -1,0 +1,10 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+
+<suite name="SingleslotSuite" parallel="classes" thread-count="2">
+  <test name="SingleslotTest">
+    <classes>
+      <class name="adults.adults_singleslot_First_slot"/>
+      <class name="adults.adults_singleslot_Second_slot"/>
+    </classes>
+  </test>
+</suite>

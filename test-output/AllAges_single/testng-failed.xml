@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="4" parallel="classes" name="Failed suite [AllAges_single]" guice-stage="DEVELOPMENT">
+  <test thread-count="4" parallel="classes" name="AllAgesTests(failed)">
+    <classes>
+      <class name="Badminton.badmintonpratice.Badminton_adults_allAges_First">
+        <methods>
+          <include name="allages_one"/>
+        </methods>
+      </class> <!-- Badminton.badmintonpratice.Badminton_adults_allAges_First -->
+    </classes>
+  </test> <!-- AllAgesTests(failed) -->
+</suite> <!-- Failed suite [AllAges_single] -->

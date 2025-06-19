@@ -1,0 +1,10 @@
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AdultsSet" parallel="classes" thread-count="2">
+  <test name="AdultsTests">
+    <classes>
+      <class name="adults.adults_First_slot"/>
+        <class name="adults.adults_First_slot2"/>
+       </classes>
+  </test>
+</suite>

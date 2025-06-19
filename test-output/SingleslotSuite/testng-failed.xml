@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="classes" name="Failed suite [SingleslotSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="classes" name="SingleslotTest(failed)">
+    <classes>
+      <class name="adults.adults_singleslot_First_slot">
+        <methods>
+          <include name="adults_one"/>
+        </methods>
+      </class> <!-- adults.adults_singleslot_First_slot -->
+    </classes>
+  </test> <!-- SingleslotTest(failed) -->
+</suite> <!-- Failed suite [SingleslotSuite] -->

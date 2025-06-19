@@ -1,0 +1,12 @@
+
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AdultsSet" parallel="classes" thread-count="4">
+  <test name="AdultsTests">
+    <classes>
+      <class name="Badminton.badmintonpratice.Badminton_adults_First_slot"/>
+      <class name="Badminton.badmintonpratice.Badminton_adults_First_slot2"/>
+      <class name="Badminton.badmintonpratice.Badminton_adults_Second_slot"/>
+      <class name="Badminton.badmintonpratice.Badminton_adults_Second_slot2"/>
+    </classes>
+  </test>
+</suite>

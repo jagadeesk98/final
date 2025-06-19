@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="2" parallel="classes" name="Failed suite [AllAgesSingleslotSuite]" guice-stage="DEVELOPMENT">
+  <test thread-count="2" parallel="classes" name="AllAgesSingleslotTest(failed)">
+    <classes>
+      <class name="allages.allAges_singleslot_First">
+        <methods>
+          <include name="allages_one"/>
+        </methods>
+      </class> <!-- allages.allAges_singleslot_First -->
+      <class name="allages.allAges_singleslot_Second">
+        <methods>
+          <include name="allages_two"/>
+        </methods>
+      </class> <!-- allages.allAges_singleslot_Second -->
+    </classes>
+  </test> <!-- AllAgesSingleslotTest(failed) -->
+</suite> <!-- Failed suite [AllAgesSingleslotSuite] -->
