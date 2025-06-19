@@ -13,7 +13,7 @@ import org.testng.annotations.Test;
 public class Second
 
 {@Test
-	public void allages_two() throws IOException
+	public void allages_two() throws IOException, InterruptedException
 	{
 		WebDriver dr=new ChromeDriver();
 		dr.get("https://reservation.frontdesksuite.ca/rcfs/richcraftkanata/Home/Index?Culture=en&PageId=b3b9b36f"
@@ -32,7 +32,8 @@ public class Second
 		WebElement reservation=dr.findElement(By.xpath("//input[@id='reservationCount']"));
 		reservation.clear();
 		reservation.sendKeys("2");	
-		dr.findElement(By.xpath("//span[@class='mdc-button__ripple']")).click();   //confirm button
+		dr.findElement(By.className("mdc-button__ripple")).click();
+		   //confirm button
 		
 		
 		
@@ -42,22 +43,8 @@ public class Second
 		dr.findElement(By.xpath("//input[@id='telephone']")).sendKeys("5199809052");
 		dr.findElement(By.xpath("//input[@id='email']")).sendKeys("jagak9052@gmail.com");
 		dr.findElement(By.xpath("//input[@id='field2021']")).sendKeys("Jagadeesh");
-		for (int i = 1; i <= 5; i++) {
-		    try {
-		        WebElement confirmButton = dr.findElement(By.xpath("//span[@class='mdc-button__ripple']"));
-		        confirmButton.click();
-		        System.out.println("[✓] Attempt " + i + ": Clicked Confirm Button");			
-		        // Check if the next page loaded by looking for the "Verification code" field or message
-		        if (dr.getPageSource().toLowerCase().contains("verification code") ||
-		            dr.getPageSource().toLowerCase().contains("enter the verification code")) {
-		            System.out.println("[✓] Verification page detected. Exiting loop.");
-		            break;
-		        }
-
-		    } catch (Exception e) {
-		        System.out.println("[!] Error on attempt " + i + ": " + e.getMessage());
-		    }
-		}
+		Thread.sleep(500);
+		dr.findElement(By.className("mdc-button__ripple")).click();	
 		
 	}
 	

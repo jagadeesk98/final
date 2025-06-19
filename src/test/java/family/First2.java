@@ -2,12 +2,15 @@ package family;
 
 
 import java.io.IOException;
+import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 public class First2
@@ -15,9 +18,9 @@ public class First2
 
 {
 	@Test
-	public void allages_one2() throws IOException
+	public void allages_one2() throws IOException, InterruptedException
 	{
-		WebDriver dr=new ChromeDriver();
+		WebDriver dr=new EdgeDriver();
 		dr.get("https://reservation.frontdesksuite.ca/rcfs/richcraftkanata/Home/Index?Culture=en&PageId=b3b9b36f"
 				+ "-8401-466d-b4c4-19eb5547b43a&ShouldStartReserveTimeFlow=False&ButtonId=00000000-0000-0000-0000-000000000000");
 		dr.manage().window().maximize();
@@ -34,7 +37,8 @@ public class First2
 		WebElement reservation=dr.findElement(By.xpath("//input[@id='reservationCount']"));
 		reservation.clear();
 		reservation.sendKeys("2");	
-		dr.findElement(By.xpath("//span[@class='mdc-button__ripple']")).click();   //confirm button
+		dr.findElement(By.className("mdc-button__ripple")).click();
+		  //confirm button
 		
 		
 		
@@ -44,22 +48,10 @@ public class First2
 		dr.findElement(By.xpath("//input[@id='telephone']")).sendKeys("4389269052");
 		dr.findElement(By.xpath("//input[@id='email']")).sendKeys("Chandukotipalli30@gmail.com");
 		dr.findElement(By.xpath("//input[@id='field2021']")).sendKeys("Chandu");
-		for (int i = 1; i <= 5; i++) {
-		    try {
-		        WebElement confirmButton = dr.findElement(By.xpath("//span[@class='mdc-button__ripple']"));
-		        confirmButton.click();
-		        System.out.println("[✓] Attempt " + i + ": Clicked Confirm Button");			
-		        // Check if the next page loaded by looking for the "Verification code" field or message
-		        if (dr.getPageSource().toLowerCase().contains("verification code") ||
-		            dr.getPageSource().toLowerCase().contains("enter the verification code")) {
-		            System.out.println("[✓] Verification page detected. Exiting loop.");
-		            break;
-		        }
-
-		    } catch (Exception e) {
-		        System.out.println("[!] Error on attempt " + i + ": " + e.getMessage());
-		    }
-		}
+		 Thread.sleep(200);
+		 WebDriverWait wait = new WebDriverWait(dr, Duration.ofSeconds(2));
+			WebElement finalConfirm = wait.until(ExpectedConditions.elementToBeClickable(By.className("mdc-button__ripple")));
+			finalConfirm.click();	
 		
 	}
 	

@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="allages.allAges_First">
+      <class name="family.First3">
         <methods>
           <include name="allages_one"/>
         </methods>
-      </class> <!-- allages.allAges_First -->
+      </class> <!-- family.First3 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

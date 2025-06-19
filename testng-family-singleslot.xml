@@ -3,7 +3,7 @@
 <suite name="AdultsSet" parallel="classes" thread-count="2">
   <test name="AdultsTests">
     <classes>
-      <class name="family.Singleslot_First"/>
+      <class name="family.allages_one"/>
       <class name="family.Singleslot_Second"/>
      
     </classes>
