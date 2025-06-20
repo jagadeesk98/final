@@ -40,12 +40,25 @@ public class Second2
 		dr.findElement(By.xpath("//span[@class='header-text']")).click(); 			// date tab
 		dr.findElement(By.xpath("(//div[@class='mdc-button__ripple'])[2]")).click();     // second time slot
 		
-		dr.findElement(By.xpath("//input[@id='telephone']")).sendKeys("4389269052");
-		dr.findElement(By.xpath("//input[@id='email']")).sendKeys("Chandukotipalli30@gmail.com");
-		dr.findElement(By.xpath("//input[@id='field2021']")).sendKeys("Chandu");
-		Thread.sleep(500);
-		dr.findElement(By.className("mdc-button__ripple")).click();	
-		
+		// Fill fields
+				dr.findElement(By.xpath("//input[@id='telephone']")).sendKeys("5199809052");
+				dr.findElement(By.xpath("//input[@id='email']")).sendKeys("jagak9052@gmail.com");
+				dr.findElement(By.xpath("//input[@id='field2021']")).sendKeys("Jagadeesh");
+
+				// Read back values
+				String phone = dr.findElement(By.xpath("//input[@id='telephone']")).getAttribute("value");
+				String email = dr.findElement(By.xpath("//input[@id='email']")).getAttribute("value");
+				String name = dr.findElement(By.xpath("//input[@id='field2021']")).getAttribute("value");
+
+				// Confirm all fields are filled correctly
+				if (phone.equals("5199809052") && email.equals("jagak9052@gmail.com") && name.equals("Jagadeesh")) {
+				    System.out.println("[✅] All inputs verified. Proceeding to click the final button.");
+
+				    // Now click final confirm button
+				    dr.findElement(By.className("mdc-button__ripple")).click();
+				} else {
+				    System.out.println("[❌] One or more inputs are incorrect. Aborting final click.");
+				}
 	}	
 	
 }

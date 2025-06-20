@@ -35,7 +35,7 @@ public class First
         js.executeScript("window.scrollBy(0,1500)");
 
         // ✅ Wait until 6:00 PM
-        while (LocalTime.now().isBefore(LocalTime.of(14, 0))) {
+        while (LocalTime.now().isBefore(LocalTime.of(18, 0))) {
             Thread.sleep(10);
         }
 		

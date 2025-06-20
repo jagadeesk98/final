@@ -22,29 +22,42 @@ public class Second
 		
 		JavascriptExecutor js=(JavascriptExecutor)dr;
 		js.executeScript("window.scrollBy(0,1500)");
-		while (java.time.LocalTime.now().isBefore(java.time.LocalTime.of(18, 0))) {
+		while (java.time.LocalTime.now().isBefore(java.time.LocalTime.of(10, 0))) {
 		    try { Thread.sleep(100); } catch (InterruptedException e) { e.printStackTrace(); }
 		}
 //		dr.findElement(By.xpath("//div[contains(text(),'Basketball - adult')]")).click();
 		
-		dr.findElement(By.xpath("//div[11]//div[3]//a[1]")).click();  //badmintion all ages	
+		dr.findElement(By.xpath("//div[14]//div[1]//a[1]")).click();  //badmintion all ages	
 		
 		WebElement reservation=dr.findElement(By.xpath("//input[@id='reservationCount']"));
 		reservation.clear();
 		reservation.sendKeys("2");	
 		dr.findElement(By.className("mdc-button__ripple")).click();
 		   //confirm button
-		
-		
-		
 		dr.findElement(By.xpath("//span[@class='header-text']")).click(); 			// date tab
 		dr.findElement(By.xpath("(//div[@class='mdc-button__ripple'])[2]")).click();     // second time slot
 		
+		// Fill fields
 		dr.findElement(By.xpath("//input[@id='telephone']")).sendKeys("5199809052");
 		dr.findElement(By.xpath("//input[@id='email']")).sendKeys("jagak9052@gmail.com");
 		dr.findElement(By.xpath("//input[@id='field2021']")).sendKeys("Jagadeesh");
-		Thread.sleep(500);
-		dr.findElement(By.className("mdc-button__ripple")).click();	
+
+		// Read back values
+		String phone = dr.findElement(By.xpath("//input[@id='telephone']")).getAttribute("value");
+		String email = dr.findElement(By.xpath("//input[@id='email']")).getAttribute("value");
+		String name = dr.findElement(By.xpath("//input[@id='field2021']")).getAttribute("value");
+
+		// Confirm all fields are filled correctly
+		if (phone.equals("5199809052") && email.equals("jagak9052@gmail.com") && name.equals("Jagadeesh")) {
+		    System.out.println("[✅] All inputs verified. Proceeding to click the final button.");
+
+		    // Now click final confirm button
+		    dr.findElement(By.className("mdc-button__ripple")).click();
+		} else {
+		    System.out.println("[❌] One or more inputs are incorrect. Aborting final click.");
+		}
+
+	
 		
 	}
 	

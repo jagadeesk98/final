@@ -51,24 +51,24 @@ public class allAges_singleslot_First
 		dr.findElement(By.xpath("//span[@class='header-text']")).click(); 			// date tab
 		dr.findElement(By.xpath("(//div[@class='mdc-button__ripple'])[1]")).click();     // first time slot
 		
+		// Fill fields
 		dr.findElement(By.xpath("//input[@id='telephone']")).sendKeys("5199809052");
 		dr.findElement(By.xpath("//input[@id='email']")).sendKeys("jagak9052@gmail.com");
 		dr.findElement(By.xpath("//input[@id='field2021']")).sendKeys("Jagadeesh");
-		for (int i = 1; i <= 5; i++) {
-		    try {
-		        WebElement confirmButton = dr.findElement(By.xpath("//span[@class='mdc-button__ripple']"));
-		        confirmButton.click();
-		        System.out.println("[✓] Attempt " + i + ": Clicked Confirm Button");			
-		        // Check if the next page loaded by looking for the "Verification code" field or message
-		        if (dr.getPageSource().toLowerCase().contains("verification code") ||
-		            dr.getPageSource().toLowerCase().contains("enter the verification code")) {
-		            System.out.println("[✓] Verification page detected. Exiting loop.");
-		            break;
-		        }
 
-		    } catch (Exception e) {
-		        System.out.println("[!] Error on attempt " + i + ": " + e.getMessage());
-		    }
+		// Read back values
+		String phone = dr.findElement(By.xpath("//input[@id='telephone']")).getAttribute("value");
+		String email = dr.findElement(By.xpath("//input[@id='email']")).getAttribute("value");
+		String name = dr.findElement(By.xpath("//input[@id='field2021']")).getAttribute("value");
+
+		// Confirm all fields are filled correctly
+		if (phone.equals("5199809052") && email.equals("jagak9052@gmail.com") && name.equals("Jagadeesh")) {
+		    System.out.println("[✅] All inputs verified. Proceeding to click the final button.");
+
+		    // Now click final confirm button
+		    dr.findElement(By.className("mdc-button__ripple")).click();
+		} else {
+		    System.out.println("[❌] One or more inputs are incorrect. Aborting final click.");
 		}
 	}
 	
